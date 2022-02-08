@@ -1,0 +1,53 @@
+{
+  "name": "klevr-invoice",
+  "version": "0.0.1",
+  "homepage": "https://github.com/kvandenhaute/klevr-invoice",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kvandenhaute/klevr-invoice.git"
+  },
+  "author": "Kevin Van Den Haute",
+  "license": "MIT",
+  "scripts": {
+    "dev": "svelte-kit dev",
+    "build": "svelte-kit build",
+    "preview": "svelte-kit preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+    "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
+    "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
+    "evergreen": "ncu -u && npm i"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": "eslint --ext .ts --cache --fix"
+  },
+  "dependencies": {
+    "@types/nunjucks": "3.2.0",
+    "html-pdf": "3.0.1",
+    "nunjucks": "3.2.3",
+    "wkhtmltopdf": "0.4.0"
+  },
+  "devDependencies": {
+    "@sveltejs/kit": "next",
+    "@typescript-eslint/eslint-plugin": "5.2.0",
+    "@typescript-eslint/parser": "5.2.0",
+    "eslint": "8.1.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-simple-import-sort": "7.0.0",
+    "eslint-plugin-svelte3": "3.2.1",
+    "npm-check-updates": "11.8.5",
+    "prettier-plugin-svelte": "2.4.0",
+    "svelte": "3.44.0",
+    "svelte-check": "2.2.8",
+    "svelte-forms-lib": "1.10.7",
+    "svelte-preprocess": "4.9.8",
+    "tslib": "2.3.1",
+    "typescript": "4.4.4"
+  },
+  "type": "module"
+}
