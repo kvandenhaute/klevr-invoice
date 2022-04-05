@@ -2,17 +2,17 @@ import Template from 'nunjucks';
 import PDF from 'wkhtmltopdf';
 
 export async function post() {
-	const invoiceNumber = 2022020801;
+	const invoiceNumber = 2022030801;
 	const intl = new Intl.NumberFormat('nl-BE', { style: 'currency', currency: 'EUR' });
-	const units = 21;
+	const units = 20;
 	const unitPrice = 570;
 	const price = units * unitPrice;
 
 	const html = Template.render('src/routes/pdf/_base.njk', {
 		invoiceNumber,
-		invoiceDate: '8 februari 2022',
-		dueDate: '22 februari 2022',
-		monthPerformed: 'Januari',
+		invoiceDate: '8 maart 2022',
+		dueDate: '22 maart 2022',
+		monthPerformed: 'Februari',
 		yearPerformed: 2022,
 		units,
 		unitPrice: intl.format(unitPrice),
