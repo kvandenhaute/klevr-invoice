@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+	<meta charset="UTF-8">
+	<title>Klevr</title>
+	<style>
+      * {
+          box-sizing: border-box;
+      }
+
+      html {
+          margin: 0;
+          padding: 0;
+          background: red;
+      }
+
+      body {
+          margin: 0;
+          padding: 0;
+          background-color: #fcfcfc;
+          color: #444;
+          font-family: Arial, sans-serif;
+          font-size: 16px;
+          font-weight: 300;
+          line-height: 1.4;
+      }
+
+      strong {
+          font-weight: bold;
+      }
+
+      .pdf {
+          display: block;
+          position: relative;
+          width: 100%;
+          padding-top: 141.51260504%;
+      }
+
+      .invoice {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+      }
+
+      .invoice__header {
+          padding: 5em 5em 2em 74px;
+      }
+
+      .invoice__header::after {
+          content: ' ';
+          display: table;
+          clear: both;
+      }
+
+      .invoice__title {
+          margin-top: 0;
+          margin-bottom: 0;
+          float: left;
+          font-size: 6em;
+          font-weight: 800;
+          line-height: 1;
+          text-transform: uppercase;
+      }
+
+      .invoice__title small {
+          display: block;
+          padding-left: 6px;
+          color: #f8bb10;
+          font-size: 1.5rem;
+          font-weight: 600;
+      }
+
+      .invoice__data::after {
+          content: ' ';
+          display: table;
+          clear: both;
+      }
+
+      .company {
+          margin-top: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding-left: 0;
+          float: right;
+      }
+
+      .company li {
+          list-style-type: none;
+          line-height: 1.5;
+          text-align: right;
+      }
+
+      .company li:first-child {
+          font-weight: bold;
+      }
+
+      .company li.break {
+          margin-top: 1em;
+      }
+
+      .contact {
+          margin-top: 3em;
+          margin-bottom: 0;
+          margin-left: 5em;
+          padding-left: 0;
+          float: left;
+      }
+
+      .contact li {
+          list-style-type: none;
+          font-size: 1.25em;
+          line-height: 1.5;
+      }
+
+      .contact li:first-child {
+          font-weight: 700;
+      }
+
+      .details {
+          margin-top: 3em;
+          margin-right: 5em;
+          float: right;
+      }
+
+      .details th {
+          padding-right: 3em;
+          font-weight: normal;
+          text-align: left;
+      }
+
+      .details td {
+          text-align: right;
+      }
+
+      .items {
+          width: 100%;
+          margin-top: 6em;
+          border-spacing: 0;
+          background-color: #f5f5f5;
+      }
+
+      .items__label,
+      .items__text {
+          padding: 1em;
+          text-align: right;
+          vertical-align: top;
+          white-space: nowrap;
+      }
+
+      .items__label:first-child,
+      .items__text:first-child {
+          padding-left: 5em;
+          text-align: left;
+          white-space: inherit;
+      }
+
+      .items__label:last-child,
+      .items__text:last-child {
+          padding-right: 5rem;
+      }
+
+      tfoot .items__label,
+      tfoot .items__text {
+          padding-top: .25em;
+          padding-bottom: .25em;
+      }
+
+      tfoot .items__label:first-child,
+      tfoot .items__text:first-child {
+          font-weight: 700;
+          text-align: right;
+      }
+
+      tfoot tr:first-child .items__label,
+      tfoot tr:first-child .items__text {
+          padding-top: 1em;
+      }
+
+      tfoot tr:last-child .items__label,
+      tfoot tr:last-child .items__text {
+          padding-bottom: 3em;
+      }
+
+      .items__label {
+          padding-top: 3em;
+          border-bottom: 2px solid #f8bb10;
+          background-color: #f5f5f5;
+      }
+
+      .statement {
+          margin: 9em 5em 0;
+          padding: 2em;
+          border: 2px dotted #4c5b5c;
+          text-align: center;
+      }
+
+      .invoice__footer {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          padding: 1em;
+          background-color: #4c5b5c;
+          color: #e9e7da;
+      }
+
+      .invoice__footer::after {
+          content: ' ';
+          display: table;
+          clear: both;
+      }
+
+      .payment-terms {
+          width: 40%;
+          float: left;
+      }
+
+      .payment-terms__title {
+          margin-top: 0;
+          margin-bottom: .5em;
+          color: #f8bb10;
+          font-size: 1em;
+      }
+
+      .payment-terms__text {
+          margin-top: 0;
+          margin-bottom: 0;
+          font-size: .875em;
+      }
+
+      .disclaimer {
+          width: 60%;
+          float: right;
+      }
+
+      .disclaimer__text {
+          margin-top: 0;
+          margin-bottom: 0;
+          font-size: .875em;
+      }
+	</style>
+</head>
+<body>
+<section class="pdf">
+	<article class="invoice">
+		<header class="invoice__header">
+			<h1 class="invoice__title">
+				<small>Hallo, dit is uw</small>
+				<strong>factuur</strong>
+			</h1>
+			<ul class="company">
+				<li>Kevin Van Den Haute bv</li>
+				<li>Grimbergsesteenweg 159C</li>
+				<li>1980 Eppegem</li>
+				<li>België</li>
+				<li class="break">kevin@vandenhaute.me</li>
+				<li>+32 476 37 48 69</li>
+			</ul>
+		</header>
+		<div class="invoice__data">
+			<ul class="contact">
+				<li>Allegis Group (Belgium) SRL</li>
+				<li>Markiesstraat – Rue du Marquis 1</li>
+				<li>1000 Brussel</li>
+				<li>België</li>
+				<li>BE 0543.691.037</li>
+			</ul>
+			<table class="details">
+				<tr>
+					<th>Factuurnummer</th>
+					<td>{{ invoiceNumber }}</td>
+				</tr>
+				<tr>
+					<th>Factuurdatum</th>
+					<td>{{ invoiceDate }}</td>
+				</tr>
+				<tr>
+					<th>Vervaldag</th>
+					<td>{{ dueDate }}</td>
+				</tr>
+			</table>
+		</div>
+		<table class="items">
+			<thead>
+			<tr>
+				<th class="items__label">Omschrijving</th>
+				<th class="items__label">Aantal</th>
+				<th class="items__label">Eenheidsprijs</th>
+				<th class="items__label">BTW</th>
+				<th class="items__label">Totaal</th>
+			</tr>
+			</thead>
+			<tfoot>
+			<tr>
+				<td colspan="4" class="items__text">Bruto</td>
+				<td class="items__text">{{ totalGross }}</td>
+			</tr>
+			<tr>
+				<td colspan="4" class="items__text">BTW</td>
+				<td class="items__text">{{ totalVAT }}</td>
+			</tr>
+			<tr>
+				<td colspan="4" class="items__text">Totaal</td>
+				<td class="items__text">{{ totalNet }}</td>
+			</tr>
+			</tfoot>
+			<tbody>
+			<tr>
+				<td class="items__text">DPG Media - {{ monthPerformed }} {{ yearPerformed }}</td>
+				<td class="items__text">{{ units }}</td>
+				<td class="items__text">{{ unitPrice }} / dag</td>
+				<td class="items__text">21%</td>
+				<td class="items__text">
+					{{ price }}<br>
+					<small>{{ vat }}</small></td>
+			</tr>
+			</tbody>
+		</table>
+		<p class="statement">Gebruik volgende gestructureerde mededeling bij betaling: <strong>{{ paymentReference }}</strong></p>
+		<footer class="invoice__footer">
+			<section class="payment-terms">
+				<h1 class="payment-terms__title">Kevin Van Den Haute bv</h1>
+				<p class="payment-terms__text">
+					BTW BE 0535.934.403<br>
+					IBAN BE83 7310 3260 5715<br>
+					BIC KREDBEBB
+				</p>
+			</section>
+			<section class="disclaimer">
+				<p class="disclaimer__text">
+					Bij niet betaling van de factuur binnen de vooropgestelde termijn, wordt van rechtswege en zonder
+					ingebrekestelling een schadebeding van 12% met een minimum van &euro; 25 aangerekend. Daarnaast
+					wordt er een nalatigheidsintrest van 1,5% per maand doorberekend. De rechtbanken van Brussel zijn
+					bevoegd bij geschil.
+				</p>
+			</section>
+		</footer>
+	</article>
+</section>
+</body>
+</html>
