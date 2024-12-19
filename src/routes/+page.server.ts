@@ -10,7 +10,7 @@ import z from 'zod';
 const intl = new Intl.NumberFormat('nl-BE', { style: 'currency', currency: 'EUR' });
 const formSchema = z.object({
 	invoiceDate: z.date().default(new Date()),
-	dailyRate: z.number().default(570),
+	dailyRate: z.number().default(600),
 	daysWorked: z.number(),
 });
 
